@@ -69,7 +69,6 @@ color_map_candidats = {
     "PÉCRESSE": "#19D3F3",
     "ZEMMOUR": "#AB63FA",
 }
-color_continuous_scale = "Blues"
 
 
 # Callbacks
@@ -238,7 +237,7 @@ def display_bar_cand(candidate, geography, pourcentage):
 # Layout
 app.layout = html.Div(
     [
-        html.H4("Elections présidentielles 2022 - 1er tour"),
+        html.H4("Election présidentielle des 10 et 24 avril 2022 - Résultats du 1er tour"),
         html.P("Précision géographique :"),
         dcc.RadioItems(
             id="geography",
