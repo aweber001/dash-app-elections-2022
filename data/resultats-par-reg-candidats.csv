@@ -1,0 +1,217 @@
+﻿Code de la région;Libellé de la région;Sexe;Nom;Prénom;Voix;% Voix/Ins;% Voix/Exp
+44;Grand Est;F;ARTHAUD;Nathalie;18658;0,48;0,67
+75;Nouvelle-Aquitaine;F;ARTHAUD;Nathalie;18497;0,41;0,54
+84;Auvergne-Rhône-Alpes;F;ARTHAUD;Nathalie;23137;0,42;0,55
+27;Bourgogne-Franche-Comté;F;ARTHAUD;Nathalie;10642;0,53;0,71
+53;Bretagne;F;ARTHAUD;Nathalie;12965;0,51;0,66
+24;Centre-Val de Loire;F;ARTHAUD;Nathalie;9256;0,5;0,69
+11;Île-de-France;F;ARTHAUD;Nathalie;21903;0,3;0,4
+76;Occitanie;F;ARTHAUD;Nathalie;14885;0,34;0,45
+32;Hauts-de-France;F;ARTHAUD;Nathalie;20977;0,49;0,69
+28;Normandie;F;ARTHAUD;Nathalie;12839;0,53;0,72
+52;Pays de la Loire;F;ARTHAUD;Nathalie;13861;0,49;0,65
+93;Provence-Alpes-Côte d'Azur;F;ARTHAUD;Nathalie;9473;0,26;0,36
+94;Corse;F;ARTHAUD;Nathalie;455;0,19;0,31
+1;Guadeloupe;F;ARTHAUD;Nathalie;1084;0,34;0,8
+2;Martinique;F;ARTHAUD;Nathalie;1447;0,48;1,18
+3;Guyane;F;ARTHAUD;Nathalie;297;0,29;0,83
+4;La Réunion;F;ARTHAUD;Nathalie;3538;0,52;1,02
+6;Mayotte;F;ARTHAUD;Nathalie;430;0,47;1,23
+44;Grand Est;M;ROUSSEL;Fabien;47422;1,23;1,7
+75;Nouvelle-Aquitaine;M;ROUSSEL;Fabien;96800;2,17;2,83
+84;Auvergne-Rhône-Alpes;M;ROUSSEL;Fabien;96418;1,73;2,28
+27;Bourgogne-Franche-Comté;M;ROUSSEL;Fabien;33931;1,7;2,27
+53;Bretagne;M;ROUSSEL;Fabien;51193;2;2,59
+24;Centre-Val de Loire;M;ROUSSEL;Fabien;33588;1,83;2,5
+11;Île-de-France;M;ROUSSEL;Fabien;105175;1,43;1,92
+76;Occitanie;M;ROUSSEL;Fabien;83483;1,93;2,52
+32;Hauts-de-France;M;ROUSSEL;Fabien;94831;2,23;3,11
+28;Normandie;M;ROUSSEL;Fabien;46358;1,92;2,6
+52;Pays de la Loire;M;ROUSSEL;Fabien;45056;1,59;2,12
+93;Provence-Alpes-Côte d'Azur;M;ROUSSEL;Fabien;54730;1,49;2,06
+94;Corse;M;ROUSSEL;Fabien;4553;1,87;3,08
+1;Guadeloupe;M;ROUSSEL;Fabien;668;0,21;0,49
+2;Martinique;M;ROUSSEL;Fabien;747;0,25;0,61
+3;Guyane;M;ROUSSEL;Fabien;246;0,24;0,69
+4;La Réunion;M;ROUSSEL;Fabien;3074;0,46;0,89
+6;Mayotte;M;ROUSSEL;Fabien;206;0,22;0,59
+44;Grand Est;M;MACRON;Emmanuel;762259;19,73;27,28
+75;Nouvelle-Aquitaine;M;MACRON;Emmanuel;945330;21,18;27,63
+84;Auvergne-Rhône-Alpes;M;MACRON;Emmanuel;1175064;21,14;27,75
+27;Bourgogne-Franche-Comté;M;MACRON;Emmanuel;394120;19,78;26,32
+53;Bretagne;M;MACRON;Emmanuel;647180;25,26;32,79
+24;Centre-Val de Loire;M;MACRON;Emmanuel;383849;20,89;28,53
+11;Île-de-France;M;MACRON;Emmanuel;1656299;22,54;30,19
+76;Occitanie;M;MACRON;Emmanuel;777771;17,99;23,48
+32;Hauts-de-France;M;MACRON;Emmanuel;773221;18,17;25,4
+28;Normandie;M;MACRON;Emmanuel;521761;21,62;29,26
+52;Pays de la Loire;M;MACRON;Emmanuel;707913;24,99;33,28
+93;Provence-Alpes-Côte d'Azur;M;MACRON;Emmanuel;619529;16,91;23,34
+94;Corse;M;MACRON;Emmanuel;26794;11,02;18,11
+1;Guadeloupe;M;MACRON;Emmanuel;18137;5,74;13,43
+2;Martinique;M;MACRON;Emmanuel;20043;6,58;16,3
+3;Guyane;M;MACRON;Emmanuel;5101;4,95;14,22
+4;La Réunion;M;MACRON;Emmanuel;62542;9,26;18,04
+6;Mayotte;M;MACRON;Emmanuel;5936;6,44;16,94
+44;Grand Est;M;LASSALLE;Jean;77453;2,01;2,77
+75;Nouvelle-Aquitaine;M;LASSALLE;Jean;201771;4,52;5,9
+84;Auvergne-Rhône-Alpes;M;LASSALLE;Jean;136417;2,45;3,22
+27;Bourgogne-Franche-Comté;M;LASSALLE;Jean;49555;2,49;3,31
+53;Bretagne;M;LASSALLE;Jean;58653;2,29;2,97
+24;Centre-Val de Loire;M;LASSALLE;Jean;38658;2,1;2,87
+11;Île-de-France;M;LASSALLE;Jean;87361;1,19;1,59
+76;Occitanie;M;LASSALLE;Jean;184993;4,28;5,59
+32;Hauts-de-France;M;LASSALLE;Jean;62548;1,47;2,05
+28;Normandie;M;LASSALLE;Jean;45487;1,88;2,55
+52;Pays de la Loire;M;LASSALLE;Jean;54584;1,93;2,57
+93;Provence-Alpes-Côte d'Azur;M;LASSALLE;Jean;72847;1,99;2,74
+94;Corse;M;LASSALLE;Jean;15408;6,34;10,42
+1;Guadeloupe;M;LASSALLE;Jean;1033;0,33;0,76
+2;Martinique;M;LASSALLE;Jean;1162;0,38;0,95
+3;Guyane;M;LASSALLE;Jean;516;0,5;1,44
+4;La Réunion;M;LASSALLE;Jean;4844;0,72;1,4
+6;Mayotte;M;LASSALLE;Jean;359;0,39;1,02
+44;Grand Est;F;LE PEN;Marine;825215;21,36;29,54
+75;Nouvelle-Aquitaine;F;LE PEN;Marine;779945;17,48;22,8
+84;Auvergne-Rhône-Alpes;F;LE PEN;Marine;943194;16,97;22,28
+27;Bourgogne-Franche-Comté;F;LE PEN;Marine;409633;20,56;27,35
+53;Bretagne;F;LE PEN;Marine;385393;15,04;19,53
+24;Centre-Val de Loire;F;LE PEN;Marine;347843;18,93;25,86
+11;Île-de-France;F;LE PEN;Marine;711720;9,68;12,97
+76;Occitanie;F;LE PEN;Marine;815481;18,86;24,62
+32;Hauts-de-France;F;LE PEN;Marine;1015361;23,86;33,35
+28;Normandie;F;LE PEN;Marine;484096;20,06;27,14
+52;Pays de la Loire;F;LE PEN;Marine;441979;15,6;20,78
+93;Provence-Alpes-Côte d'Azur;F;LE PEN;Marine;732376;19,99;27,59
+94;Corse;F;LE PEN;Marine;42284;17,4;28,58
+1;Guadeloupe;F;LE PEN;Marine;24204;7,66;17,92
+2;Martinique;F;LE PEN;Marine;16495;5,42;13,42
+3;Guyane;F;LE PEN;Marine;6334;6,15;17,66
+4;La Réunion;F;LE PEN;Marine;85770;12,7;24,73
+6;Mayotte;F;LE PEN;Marine;14958;16,23;42,67
+44;Grand Est;M;ZEMMOUR;Éric;200289;5,18;7,17
+75;Nouvelle-Aquitaine;M;ZEMMOUR;Éric;210501;4,72;6,15
+84;Auvergne-Rhône-Alpes;M;ZEMMOUR;Éric;312903;5,63;7,39
+27;Bourgogne-Franche-Comté;M;ZEMMOUR;Éric;107055;5,37;7,15
+53;Bretagne;M;ZEMMOUR;Éric;96984;3,79;4,91
+24;Centre-Val de Loire;M;ZEMMOUR;Éric;88575;4,82;6,58
+11;Île-de-France;M;ZEMMOUR;Éric;409481;5,57;7,46
+76;Occitanie;M;ZEMMOUR;Éric;260206;6,02;7,86
+32;Hauts-de-France;M;ZEMMOUR;Éric;179606;4,22;5,9
+28;Normandie;M;ZEMMOUR;Éric;99446;4,12;5,58
+52;Pays de la Loire;M;ZEMMOUR;Éric;114377;4,04;5,38
+93;Provence-Alpes-Côte d'Azur;M;ZEMMOUR;Éric;310837;8,48;11,71
+94;Corse;M;ZEMMOUR;Éric;18936;7,79;12,8
+1;Guadeloupe;M;ZEMMOUR;Éric;3098;0,98;2,29
+2;Martinique;M;ZEMMOUR;Éric;3153;1,04;2,56
+3;Guyane;M;ZEMMOUR;Éric;1573;1,53;4,39
+4;La Réunion;M;ZEMMOUR;Éric;13070;1,93;3,77
+6;Mayotte;M;ZEMMOUR;Éric;482;0,52;1,38
+44;Grand Est;M;MÉLENCHON;Jean-Luc;492448;12,75;17,63
+75;Nouvelle-Aquitaine;M;MÉLENCHON;Jean-Luc;681405;15,27;19,92
+84;Auvergne-Rhône-Alpes;M;MÉLENCHON;Jean-Luc;897386;16,15;21,2
+27;Bourgogne-Franche-Comté;M;MÉLENCHON;Jean-Luc;277899;13,95;18,56
+53;Bretagne;M;MÉLENCHON;Jean-Luc;407528;15,91;20,65
+24;Centre-Val de Loire;M;MÉLENCHON;Jean-Luc;251257;13,68;18,68
+11;Île-de-France;M;MÉLENCHON;Jean-Luc;1659126;22,58;30,24
+76;Occitanie;M;MÉLENCHON;Jean-Luc;742545;17,17;22,42
+32;Hauts-de-France;M;MÉLENCHON;Jean-Luc;577878;13,58;18,98
+28;Normandie;M;MÉLENCHON;Jean-Luc;335582;13,9;18,82
+52;Pays de la Loire;M;MÉLENCHON;Jean-Luc;408959;14,44;19,22
+93;Provence-Alpes-Côte d'Azur;M;MÉLENCHON;Jean-Luc;524676;14,32;19,77
+94;Corse;M;MÉLENCHON;Jean-Luc;19779;8,14;13,37
+1;Guadeloupe;M;MÉLENCHON;Jean-Luc;75862;24,01;56,16
+2;Martinique;M;MÉLENCHON;Jean-Luc;65292;21,44;53,1
+3;Guyane;M;MÉLENCHON;Jean-Luc;18143;17,62;50,59
+4;La Réunion;M;MÉLENCHON;Jean-Luc;139604;20,67;40,26
+6;Mayotte;M;MÉLENCHON;Jean-Luc;8399;9,11;23,96
+44;Grand Est;F;HIDALGO;Anne;40032;1,04;1,43
+75;Nouvelle-Aquitaine;F;HIDALGO;Anne;77326;1,73;2,26
+84;Auvergne-Rhône-Alpes;F;HIDALGO;Anne;77560;1,4;1,83
+27;Bourgogne-Franche-Comté;F;HIDALGO;Anne;26543;1,33;1,77
+53;Bretagne;F;HIDALGO;Anne;43605;1,7;2,21
+24;Centre-Val de Loire;F;HIDALGO;Anne;23161;1,26;1,72
+11;Île-de-France;F;HIDALGO;Anne;78563;1,07;1,43
+76;Occitanie;F;HIDALGO;Anne;77209;1,79;2,33
+32;Hauts-de-France;F;HIDALGO;Anne;40856;0,96;1,34
+28;Normandie;F;HIDALGO;Anne;30234;1,25;1,7
+52;Pays de la Loire;F;HIDALGO;Anne;43286;1,53;2,03
+93;Provence-Alpes-Côte d'Azur;F;HIDALGO;Anne;29511;0,81;1,11
+94;Corse;F;HIDALGO;Anne;1592;0,66;1,08
+1;Guadeloupe;F;HIDALGO;Anne;2266;0,72;1,68
+2;Martinique;F;HIDALGO;Anne;3935;1,29;3,2
+3;Guyane;F;HIDALGO;Anne;535;0,52;1,49
+4;La Réunion;F;HIDALGO;Anne;5549;0,82;1,6
+6;Mayotte;F;HIDALGO;Anne;318;0,34;0,91
+44;Grand Est;M;JADOT;Yannick;111974;2,9;4,01
+75;Nouvelle-Aquitaine;M;JADOT;Yannick;151746;3,4;4,44
+84;Auvergne-Rhône-Alpes;M;JADOT;Yannick;224734;4,04;5,31
+27;Bourgogne-Franche-Comté;M;JADOT;Yannick;60227;3,02;4,02
+53;Bretagne;M;JADOT;Yannick;122198;4,77;6,19
+24;Centre-Val de Loire;M;JADOT;Yannick;54400;2,96;4,04
+11;Île-de-France;M;JADOT;Yannick;296208;4,03;5,4
+76;Occitanie;M;JADOT;Yannick;139249;3,22;4,2
+32;Hauts-de-France;M;JADOT;Yannick;95234;2,24;3,13
+28;Normandie;M;JADOT;Yannick;73288;3,04;4,11
+52;Pays de la Loire;M;JADOT;Yannick;127892;4,51;6,01
+93;Provence-Alpes-Côte d'Azur;M;JADOT;Yannick;107670;2,94;4,06
+94;Corse;M;JADOT;Yannick;4801;1,98;3,25
+1;Guadeloupe;M;JADOT;Yannick;1927;0,61;1,43
+2;Martinique;M;JADOT;Yannick;1978;0,65;1,61
+3;Guyane;M;JADOT;Yannick;940;0,91;2,62
+4;La Réunion;M;JADOT;Yannick;7994;1,18;2,31
+6;Mayotte;M;JADOT;Yannick;295;0,32;0,84
+44;Grand Est;F;PÉCRESSE;Valérie;120914;3,13;4,33
+75;Nouvelle-Aquitaine;F;PÉCRESSE;Valérie;157229;3,52;4,6
+84;Auvergne-Rhône-Alpes;F;PÉCRESSE;Valérie;217873;3,92;5,15
+27;Bourgogne-Franche-Comté;F;PÉCRESSE;Valérie;76658;3,85;5,12
+53;Bretagne;F;PÉCRESSE;Valérie;92800;3,62;4,7
+24;Centre-Val de Loire;F;PÉCRESSE;Valérie;71689;3,9;5,33
+11;Île-de-France;F;PÉCRESSE;Valérie;339459;4,62;6,19
+76;Occitanie;F;PÉCRESSE;Valérie;129083;2,99;3,9
+32;Hauts-de-France;F;PÉCRESSE;Valérie;107631;2,53;3,53
+28;Normandie;F;PÉCRESSE;Valérie;79799;3,31;4,47
+52;Pays de la Loire;F;PÉCRESSE;Valérie;106769;3,77;5,02
+93;Provence-Alpes-Côte d'Azur;F;PÉCRESSE;Valérie;116137;3,17;4,38
+94;Corse;F;PÉCRESSE;Valérie;9360;3,85;6,33
+1;Guadeloupe;F;PÉCRESSE;Valérie;3979;1,26;2,95
+2;Martinique;F;PÉCRESSE;Valérie;4731;1,55;3,85
+3;Guyane;F;PÉCRESSE;Valérie;997;0,97;2,78
+4;La Réunion;F;PÉCRESSE;Valérie;9738;1,44;2,81
+6;Mayotte;F;PÉCRESSE;Valérie;2810;3,05;8,02
+44;Grand Est;M;POUTOU;Philippe;22240;0,58;0,8
+75;Nouvelle-Aquitaine;M;POUTOU;Philippe;32598;0,73;0,95
+84;Auvergne-Rhône-Alpes;M;POUTOU;Philippe;30593;0,55;0,72
+27;Bourgogne-Franche-Comté;M;POUTOU;Philippe;12737;0,64;0,85
+53;Bretagne;M;POUTOU;Philippe;19914;0,78;1,01
+24;Centre-Val de Loire;M;POUTOU;Philippe;11220;0,61;0,83
+11;Île-de-France;M;POUTOU;Philippe;33071;0,45;0,6
+76;Occitanie;M;POUTOU;Philippe;23912;0,55;0,72
+32;Hauts-de-France;M;POUTOU;Philippe;21150;0,5;0,69
+28;Normandie;M;POUTOU;Philippe;16005;0,66;0,9
+52;Pays de la Loire;M;POUTOU;Philippe;18431;0,65;0,87
+93;Provence-Alpes-Côte d'Azur;M;POUTOU;Philippe;16224;0,44;0,61
+94;Corse;M;POUTOU;Philippe;1374;0,57;0,93
+1;Guadeloupe;M;POUTOU;Philippe;713;0,23;0,53
+2;Martinique;M;POUTOU;Philippe;977;0,32;0,79
+3;Guyane;M;POUTOU;Philippe;462;0,45;1,29
+4;La Réunion;M;POUTOU;Philippe;2705;0,4;0,78
+6;Mayotte;M;POUTOU;Philippe;328;0,36;0,94
+44;Grand Est;M;DUPONT-AIGNAN;Nicolas;74916;1,94;2,68
+75;Nouvelle-Aquitaine;M;DUPONT-AIGNAN;Nicolas;67662;1,52;1,98
+84;Auvergne-Rhône-Alpes;M;DUPONT-AIGNAN;Nicolas;98465;1,77;2,33
+27;Bourgogne-Franche-Comté;M;DUPONT-AIGNAN;Nicolas;38691;1,94;2,58
+53;Bretagne;M;DUPONT-AIGNAN;Nicolas;35103;1,37;1,78
+24;Centre-Val de Loire;M;DUPONT-AIGNAN;Nicolas;31759;1,73;2,36
+11;Île-de-France;M;DUPONT-AIGNAN;Nicolas;87349;1,19;1,59
+76;Occitanie;M;DUPONT-AIGNAN;Nicolas;63242;1,46;1,91
+32;Hauts-de-France;M;DUPONT-AIGNAN;Nicolas;55439;1,3;1,82
+28;Normandie;M;DUPONT-AIGNAN;Nicolas;38559;1,6;2,16
+52;Pays de la Loire;M;DUPONT-AIGNAN;Nicolas;44212;1,56;2,08
+93;Provence-Alpes-Côte d'Azur;M;DUPONT-AIGNAN;Nicolas;60204;1,64;2,27
+94;Corse;M;DUPONT-AIGNAN;Nicolas;2601;1,07;1,76
+1;Guadeloupe;M;DUPONT-AIGNAN;Nicolas;2114;0,67;1,56
+2;Martinique;M;DUPONT-AIGNAN;Nicolas;2989;0,98;2,43
+3;Guyane;M;DUPONT-AIGNAN;Nicolas;717;0,7;2
+4;La Réunion;M;DUPONT-AIGNAN;Nicolas;8338;1,23;2,4
+6;Mayotte;M;DUPONT-AIGNAN;Nicolas;530;0,57;1,51
