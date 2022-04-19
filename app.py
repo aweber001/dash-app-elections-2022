@@ -6,7 +6,8 @@ import pathlib
 
 
 # Dash App
-app = Dash(__name__)
+external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 # Path
@@ -81,6 +82,7 @@ color_map_candidats = {
 )
 def display_choropleth_stats(stats, geography, pourcentage):
     df_stats = read_file(data[geography]["stats"])
+    geojson = read_geojson(data[geography]["geo"])
 
     if pourcentage == "Oui":
         if stats == "Inscrits":
@@ -100,7 +102,7 @@ def display_choropleth_stats(stats, geography, pourcentage):
 
     fig = px.choropleth(
         df_stats,
-        geojson=read_geojson(data[geography]["geo"]),
+        geojson=geojson,
         locations=data[geography]["id"],
         color=color_label,
         color_continuous_scale="Purples",
@@ -120,8 +122,8 @@ def display_choropleth_stats(stats, geography, pourcentage):
     Input("pourcentage", "value"),
 )
 def display_choropleth_cand(candidate, geography, pourcentage):
-
     df_candidats = read_file(data[geography]["candidats"])
+    geojson = read_geojson(data[geography]["geo"])
 
     if candidate == "Majorité":
         res_candidat = df_candidats.groupby(data[geography]["id"]).apply(
@@ -137,7 +139,7 @@ def display_choropleth_cand(candidate, geography, pourcentage):
 
     fig = px.choropleth(
         res_candidat,
-        geojson=read_geojson(data[geography]["geo"]),
+        geojson=geojson,
         locations=data[geography]["id"],
         color=color_label,
         color_continuous_scale="Blues",
