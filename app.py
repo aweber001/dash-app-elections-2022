@@ -7,6 +7,7 @@ import pathlib
 
 # Dash App
 app = Dash(__name__)
+server = app.server
 
 # Path
 BASE_PATH = pathlib.Path(__file__).parent.resolve()
@@ -237,7 +238,9 @@ def display_bar_cand(candidate, geography, pourcentage):
 # Layout
 app.layout = html.Div(
     [
-        html.H4("Election présidentielle des 10 et 24 avril 2022 - Résultats du 1er tour"),
+        html.H4(
+            "Election présidentielle des 10 et 24 avril 2022 - Résultats du 1er tour"
+        ),
         html.P("Précision géographique :"),
         dcc.RadioItems(
             id="geography",
