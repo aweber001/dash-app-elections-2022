@@ -65,9 +65,9 @@ data = {
 
 color_map_candidats = {
     "JADOT": "#FFA15A",
-    "LE PEN": "#EF553B",
-    "MACRON": "#636EFA",
-    "MÉLENCHON": "#00CC96",
+    "LE PEN": "#9467BD",
+    "MACRON": "rgb(33,102,172)",
+    "MÉLENCHON": "rgb(178,24,43)",
     "PÉCRESSE": "#19D3F3",
     "ZEMMOUR": "#AB63FA",
 }
@@ -105,12 +105,22 @@ def display_choropleth_stats(stats, geography, pourcentage):
         geojson=geojson,
         locations=data[geography]["id"],
         color=color_label,
-        color_continuous_scale="Purples",
+        color_continuous_scale="Blues",
         featureidkey="properties.nom",
         projection="mercator",
     )
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    # fig.update_coloraxes(showscale=False)
+
+    colorlabel = stats
+    if pourcentage == "Oui":
+        colorlabel += " (%) "
+    fig.update_layout(
+        coloraxis_colorbar=dict(
+            title=colorlabel,
+        ),
+    )
 
     return fig
 
@@ -125,7 +135,7 @@ def display_choropleth_cand(candidate, geography, pourcentage):
     df_candidats = read_file(data[geography]["candidats"])
     geojson = read_geojson(data[geography]["geo"])
 
-    if candidate == "Majorité":
+    if candidate == "MAJORITE":
         res_candidat = df_candidats.groupby(data[geography]["id"]).apply(
             lambda x: find_majority(x)
         )
@@ -142,7 +152,7 @@ def display_choropleth_cand(candidate, geography, pourcentage):
         geojson=geojson,
         locations=data[geography]["id"],
         color=color_label,
-        color_continuous_scale="Blues",
+        color_continuous_scale="RdBu_r",
         color_discrete_map=color_map_candidats,
         featureidkey="properties.nom",
         projection="mercator",
@@ -150,6 +160,14 @@ def display_choropleth_cand(candidate, geography, pourcentage):
     )
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    colorlabel = "Voix"
+    if pourcentage == "Oui":
+        colorlabel += " (%) "
+    fig.update_layout(
+        coloraxis_colorbar=dict(
+            title=colorlabel,
+        ),
+    )
 
     return fig
 
@@ -185,8 +203,13 @@ def display_bar_stats(stats, geography, pourcentage):
         y=data[geography]["id"],
         x=color_label,
         color=color_label,
-        color_continuous_scale="Purples",
+        color_continuous_scale="Blues",
     )
+    fig.update_coloraxes(showscale=False)
+    xlabel = stats
+    if pourcentage == "Oui":
+        xlabel += " (%) "
+    fig.update_xaxes(title_text=xlabel)
 
     return fig
 
@@ -201,7 +224,7 @@ def display_bar_cand(candidate, geography, pourcentage):
 
     df_candidats = read_file(data[geography]["candidats"])
 
-    if candidate == "Majorité":
+    if candidate == "MAJORITE":
         res_candidat = df_candidats.groupby(data[geography]["id"]).apply(
             lambda x: find_majority(x)
         )
@@ -231,81 +254,166 @@ def display_bar_cand(candidate, geography, pourcentage):
             y=data[geography]["id"],
             x=color_label,
             color=color_label,
-            color_continuous_scale="Blues",
+            color_continuous_scale="RdBu_r",
         )
+
+    fig.update_coloraxes(showscale=False)
+    xlabel = "Voix"
+    if pourcentage == "Oui":
+        xlabel += " (%) "
+    fig.update_xaxes(title_text=xlabel)
 
     return fig
 
 
 # Layout
+colors = {"background": "#d1d1e0", "text": "#7FDBFF"}
 app.layout = html.Div(
-    [
-        html.H4(
-            "Election présidentielle des 10 et 24 avril 2022 - Résultats du 1er tour"
-        ),
-        html.P("Précision géographique :"),
-        dcc.RadioItems(
-            id="geography",
-            options=["Région", "Département"],
-            value="Région",
-            inline=True,
-        ),
-        html.P("Exprimé en pourcentage :"),
-        dcc.RadioItems(
-            id="pourcentage", options=["Oui", "Non"], value="Oui", inline=True
-        ),
+    children=[
         html.Div(
-            [
-                html.H5("Résultats par candidat"),
-                html.P("Candidat :"),
-                dcc.Dropdown(
-                    id="candidate",
-                    options=[
-                        "Majorité",
-                        "Arthaud",
-                        "Dupont-Aignan",
-                        "Hidalgo",
-                        "Jadot",
-                        "Lassalle",
-                        "Le Pen",
-                        "Macron",
-                        "Mélenchon",
-                        "Poutou",
-                        "Pécresse",
-                        "Roussel",
-                        "Zemmour",
+            className="row",
+            children=[
+                # BANNER
+                html.Div(
+                    id="banner",
+                    className="banner",
+                    children=[
+                        html.H1("Election présidentielle des 10 et 24 avril 2022")
                     ],
-                    value="Majorité",
-                    # inline=True
                 ),
-                dcc.Graph(id="graph-cand"),
-                dcc.Graph(id="bar-cand"),
-            ],
-            style={"width": "48%", "display": "inline-block"},
-        ),
-        html.Div(
-            [
-                html.H5("Statistiques de vote"),
-                html.P("Chiffres :"),
-                dcc.Dropdown(
-                    id="stats",
-                    options=[
-                        "Inscrits",
-                        "Votants",
-                        "Abstentions",
-                        "Blancs",
-                        "Nuls",
-                        "Exprimés",
+                # LEFT PANEL
+                html.Div(
+                    id="left-column",
+                    className="four columns div-user-controls",
+                    children=[
+                        # HEADER
+                        # html.H1(
+                        #     children="Election présidentielle des 10 et 24 avril 2022",
+                        # ),
+                        html.H5(
+                            children="Résultats du 1er tour",
+                        ),
+                        html.Br(),
+                        # SETTINGS
+                        # Geography
+                        html.Div(
+                            className="div-for-dropdown",
+                            children=[
+                                html.H6("Précision géographique"),
+                                dcc.Dropdown(
+                                    id="geography",
+                                    options=["Région", "Département"],
+                                    value="Région",
+                                    # inline=True,
+                                ),
+                            ],
+                        ),
+                        # Pourcentage
+                        html.Div(
+                            className="div-for-dropdown",
+                            children=[
+                                html.H6("Exprimé en pourcentage"),
+                                dcc.Dropdown(
+                                    id="pourcentage",
+                                    options=["Oui", "Non"],
+                                    value="Oui",
+                                    # inline=True,
+                                ),
+                            ],
+                        ),
                     ],
-                    value="Votants",
-                    # inline=True
                 ),
-                dcc.Graph(id="graph-stats"),
-                dcc.Graph(id="bar-stats"),
+                # RIGHT PANELS
+                html.Div(
+                    id="right-column",
+                    className="eight columns div-for-charts bg-grey",
+                    children=[
+                        # LEFT PANEL - CANDIDATES
+                        html.Div(
+                            [
+                                html.H5("Résultats par candidat"),
+                                html.Div(
+                                    className="div-for-dropdown",
+                                    children=[
+                                        dcc.Dropdown(
+                                            id="candidate",
+                                            options=[
+                                                "MAJORITE",
+                                                "Arthaud",
+                                                "Dupont-Aignan",
+                                                "Hidalgo",
+                                                "Jadot",
+                                                "Lassalle",
+                                                "Le Pen",
+                                                "Macron",
+                                                "Mélenchon",
+                                                "Poutou",
+                                                "Pécresse",
+                                                "Roussel",
+                                                "Zemmour",
+                                            ],
+                                            value="MAJORITE",
+                                            # inline=True
+                                        ),
+                                    ],
+                                ),
+                                dcc.Graph(id="graph-cand"),
+                                dcc.Graph(id="bar-cand"),
+                            ],
+                            style={"width": "48%", "display": "inline-block"},
+                        ),
+                        # RIGHT PANEL - STATISTIQUES
+                        html.Div(
+                            [
+                                html.H5("Statistiques de vote"),
+                                html.Div(
+                                    className="div-for-dropdown",
+                                    children=[
+                                        dcc.Dropdown(
+                                            id="stats",
+                                            options=[
+                                                "Inscrits",
+                                                "Votants",
+                                                "Abstentions",
+                                                "Blancs",
+                                                "Nuls",
+                                                "Exprimés",
+                                            ],
+                                            value="Votants",
+                                            # inline=True
+                                        ),
+                                    ],
+                                ),
+                                dcc.Graph(id="graph-stats"),
+                                dcc.Graph(id="bar-stats"),
+                            ],
+                            style={
+                                "width": "48%",
+                                "float": "right",
+                                "display": "inline-block",
+                            },
+                        ),
+                    ],
+                ),
             ],
-            style={"width": "48%", "float": "right", "display": "inline-block"},
         ),
-    ]
+        html.Br(),
+        html.Footer(
+            style={"verticalAlign": "bottom"},
+            children=[
+                html.H5("Sources"),
+                html.P("Créé sous Python avec Dash Plotly : https://dash.plotly.com/"),
+                html.P(
+                    "Résultats définitifs du ministère de l'intérieur : https://www.data.gouv.fr/fr/datasets/election-presidentielle-des-10-et-24-avril-2022-resultats-du-1er-tour/"
+                ),
+                html.P(
+                    "Données geojson pour les cartes de France : https://france-geojson.gregoiredavid.fr/"
+                ),
+                html.Br(),
+                html.P("Créé par Axelle Weber"),
+            ],
+        ),
+    ],
 )
 
 if __name__ == "__main__":
