@@ -105,7 +105,8 @@ def display_choropleth_stats(stats, geography, pourcentage):
         geojson=geojson,
         locations=data[geography]["id"],
         color=color_label,
-        color_continuous_scale="Blues",
+        # range_color=(0, 100),
+        color_continuous_scale="RdBu_r",  # Blues
         featureidkey="properties.nom",
         projection="mercator",
     )
@@ -203,7 +204,7 @@ def display_bar_stats(stats, geography, pourcentage):
         y=data[geography]["id"],
         x=color_label,
         color=color_label,
-        color_continuous_scale="Blues",
+        color_continuous_scale="RdBu_r",
     )
     fig.update_coloraxes(showscale=False)
     xlabel = stats
@@ -291,10 +292,21 @@ app.layout = html.Div(
                         #     children="Election présidentielle des 10 et 24 avril 2022",
                         # ),
                         html.H5(
-                            children="Résultats du 1er tour",
+                            children="Paramètres",
                         ),
-                        html.Br(),
                         # SETTINGS
+                        html.Div(
+                            className="div-for-dropdown",
+                            children=[
+                                html.H6("Résultats"),
+                                dcc.Dropdown(
+                                    id="resultats",
+                                    options=["1er tour", "2nd tour"],
+                                    value="1er tour",
+                                    # inline=True,
+                                ),
+                            ],
+                        ),
                         # Geography
                         html.Div(
                             className="div-for-dropdown",
@@ -352,7 +364,7 @@ app.layout = html.Div(
                                                 "Roussel",
                                                 "Zemmour",
                                             ],
-                                            value="MAJORITE",
+                                            value="Arthaud",
                                             # inline=True
                                         ),
                                     ],
@@ -372,14 +384,14 @@ app.layout = html.Div(
                                         dcc.Dropdown(
                                             id="stats",
                                             options=[
-                                                "Inscrits",
+                                                #"Inscrits",
                                                 "Votants",
                                                 "Abstentions",
                                                 "Blancs",
                                                 "Nuls",
-                                                "Exprimés",
+                                                #"Exprimés",
                                             ],
-                                            value="Votants",
+                                            value="Abstentions",
                                             # inline=True
                                         ),
                                     ],
