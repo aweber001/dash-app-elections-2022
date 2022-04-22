@@ -49,19 +49,23 @@ def read_geojson(filepath):
 
 # Data"
 data = {
-    "Département": {
-        "id": "Libellé du département",
-        "stats": "resultats-par-dpt-france-entiere.csv",
-        "candidats": "resultats-par-dpt-candidats.csv",
-        "geo": "departements_france.geojson",
+    "1er tour": {
+        "Département": {
+            "id": "Libellé du département",
+            "stats": "resultats-par-dpt-france-entiere.csv",
+            "candidats": "resultats-par-dpt-candidats.csv",
+            "geo": "departements_france.geojson",
+        },
+        "Région": {
+            "id": "Libellé de la région",
+            "stats": "resultats-par-reg-france-entiere.csv",
+            "candidats": "resultats-par-reg-candidats.csv",
+            "geo": "regions_france.geojson",
+        },
     },
-    "Région": {
-        "id": "Libellé de la région",
-        "stats": "resultats-par-reg-france-entiere.csv",
-        "candidats": "resultats-par-reg-candidats.csv",
-        "geo": "regions_france.geojson",
-    },
+    "2nd tour": {},
 }
+
 
 color_map_candidats = {
     "JADOT": "#FFA15A",
@@ -79,10 +83,11 @@ color_map_candidats = {
     Input("stats", "value"),
     Input("geography", "value"),
     Input("pourcentage", "value"),
+    Input("tour", "value"),
 )
-def display_choropleth_stats(stats, geography, pourcentage):
-    df_stats = read_file(data[geography]["stats"])
-    geojson = read_geojson(data[geography]["geo"])
+def display_choropleth_stats(stats, geography, pourcentage, tour):
+    df_stats = read_file(data[tour][geography]["stats"])
+    geojson = read_geojson(data[tour][geography]["geo"])
 
     if pourcentage == "Oui":
         if stats == "Inscrits":
@@ -103,7 +108,7 @@ def display_choropleth_stats(stats, geography, pourcentage):
     fig = px.choropleth(
         df_stats,
         geojson=geojson,
-        locations=data[geography]["id"],
+        locations=data[tour][geography]["id"],
         color=color_label,
         # range_color=(0, 100),
         color_continuous_scale="RdBu_r",  # Blues
@@ -131,13 +136,14 @@ def display_choropleth_stats(stats, geography, pourcentage):
     Input("candidate", "value"),
     Input("geography", "value"),
     Input("pourcentage", "value"),
+    Input("tour", "value"),
 )
-def display_choropleth_cand(candidate, geography, pourcentage):
-    df_candidats = read_file(data[geography]["candidats"])
-    geojson = read_geojson(data[geography]["geo"])
+def display_choropleth_cand(candidate, geography, pourcentage, tour):
+    df_candidats = read_file(data[tour][geography]["candidats"])
+    geojson = read_geojson(data[tour][geography]["geo"])
 
     if candidate == "MAJORITE":
-        res_candidat = df_candidats.groupby(data[geography]["id"]).apply(
+        res_candidat = df_candidats.groupby(data[tour][geography]["id"]).apply(
             lambda x: find_majority(x)
         )
         color_label = "Nom"
@@ -151,7 +157,7 @@ def display_choropleth_cand(candidate, geography, pourcentage):
     fig = px.choropleth(
         res_candidat,
         geojson=geojson,
-        locations=data[geography]["id"],
+        locations=data[tour][geography]["id"],
         color=color_label,
         color_continuous_scale="RdBu_r",
         color_discrete_map=color_map_candidats,
@@ -178,9 +184,10 @@ def display_choropleth_cand(candidate, geography, pourcentage):
     Input("stats", "value"),
     Input("geography", "value"),
     Input("pourcentage", "value"),
+    Input("tour", "value"),
 )
-def display_bar_stats(stats, geography, pourcentage):
-    df_stats = read_file(data[geography]["stats"])
+def display_bar_stats(stats, geography, pourcentage, tour):
+    df_stats = read_file(data[tour][geography]["stats"])
 
     if pourcentage == "Oui":
         if stats == "Inscrits":
@@ -201,7 +208,7 @@ def display_bar_stats(stats, geography, pourcentage):
     fig = px.bar(
         df_stats.sort_values(by=color_label),
         orientation="h",
-        y=data[geography]["id"],
+        y=data[tour][geography]["id"],
         x=color_label,
         color=color_label,
         color_continuous_scale="RdBu_r",
@@ -220,13 +227,14 @@ def display_bar_stats(stats, geography, pourcentage):
     Input("candidate", "value"),
     Input("geography", "value"),
     Input("pourcentage", "value"),
+    Input("tour", "value"),
 )
-def display_bar_cand(candidate, geography, pourcentage):
+def display_bar_cand(candidate, geography, pourcentage, tour):
 
-    df_candidats = read_file(data[geography]["candidats"])
+    df_candidats = read_file(data[tour][geography]["candidats"])
 
     if candidate == "MAJORITE":
-        res_candidat = df_candidats.groupby(data[geography]["id"]).apply(
+        res_candidat = df_candidats.groupby(data[tour][geography]["id"]).apply(
             lambda x: find_majority(x)
         )
         color_label = "Nom"
@@ -252,7 +260,7 @@ def display_bar_cand(candidate, geography, pourcentage):
         fig = px.bar(
             res_candidat.sort_values(by=color_label),
             orientation="h",
-            y=data[geography]["id"],
+            y=data[tour][geography]["id"],
             x=color_label,
             color=color_label,
             color_continuous_scale="RdBu_r",
@@ -288,9 +296,6 @@ app.layout = html.Div(
                     className="four columns div-user-controls",
                     children=[
                         # HEADER
-                        # html.H1(
-                        #     children="Election présidentielle des 10 et 24 avril 2022",
-                        # ),
                         html.H5(
                             children="Paramètres",
                         ),
@@ -300,7 +305,7 @@ app.layout = html.Div(
                             children=[
                                 html.H6("Résultats"),
                                 dcc.Dropdown(
-                                    id="resultats",
+                                    id="tour",
                                     options=["1er tour", "2nd tour"],
                                     value="1er tour",
                                     # inline=True,
@@ -384,12 +389,12 @@ app.layout = html.Div(
                                         dcc.Dropdown(
                                             id="stats",
                                             options=[
-                                                #"Inscrits",
+                                                # "Inscrits",
                                                 "Votants",
                                                 "Abstentions",
                                                 "Blancs",
                                                 "Nuls",
-                                                #"Exprimés",
+                                                # "Exprimés",
                                             ],
                                             value="Abstentions",
                                             # inline=True
