@@ -37,12 +37,18 @@ hr {
     margin-left: 2%;
 }
 
+H1 {
+    color: #889099;
+    font-weight: 300;
+}
+
 H5 {
     color: #2c8cff;
     font-weight: 300;
 }
 
-H5, H3 {
+H5,
+H3 {
     font-family: Acumin, "Helvetica Neue", sans-serif;
 }
 
@@ -67,7 +73,8 @@ H5, H3 {
     font-size: 13px;
 }
 
-.wait_time_graph > div, .patient_score_graph > div {
+.wait_time_graph>div,
+.patient_score_graph>div {
     height: 100% !important;
     width: 100% !important;
 }
@@ -82,18 +89,20 @@ H5, H3 {
     text-align: justify;
 }
 
-#control-card > p {
+#control-card>p {
     font-weight: bold;
 }
 
-#patient_volume_card, #wait_time_card {
+#patient_volume_card,
+#wait_time_card {
     background-color: #FFFFFF;
     padding: 1rem;
     margin: auto;
     margin-top: 20px;
 }
 
-#patient_volume_card > b, #wait_time_card > b {
+#patient_volume_card>b,
+#wait_time_card>b {
     line-height: 2.5;
 }
 
@@ -109,16 +118,18 @@ H5, H3 {
     background-color: #f2f2f2;
 }
 
-.row-department > b {
+.row-department>b {
     display: table-cell;
     vertical-align: middle;
 }
 
-#header_wait_time_min, #header_care_score {
+#header_wait_time_min,
+#header_care_score {
     display: table;
 }
 
-#header_wait_time_min > b, #header_care_score > b {
+#header_wait_time_min>b,
+#header_care_score>b {
     display: table-cell;
     vertical-align: middle;
 }
@@ -128,7 +139,8 @@ H5, H3 {
   ##Device = Most of the Smartphones Mobiles / ipad (Portrait)
   */
 
-@media only screen and (max-width: 750px), screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (max-width: 750px),
+screen and (min-width: 768px) and (max-width: 1024px) {
 
     body {
         font-size: 13px;
@@ -151,7 +163,8 @@ H5, H3 {
         margin: 10px 0px;
     }
 
-    #left-column, #right-column {
+    #left-column,
+    #right-column {
         width: 100%;
         margin-left: 0px;
     }
@@ -164,13 +177,14 @@ H5, H3 {
         text-align: center;
     }
 
-    .table-row > div {
+    .table-row>div {
         width: 100% !important;
         text-align: center;
         margin: auto;
     }
 
-    .table-row:nth-child(even), .table-row:nth-child(odd) {
+    .table-row:nth-child(even),
+    .table-row:nth-child(odd) {
         background-color: #FFFFFF;
     }
 
@@ -184,7 +198,8 @@ H5, H3 {
         clear: both;
     }
 
-    #patient_volume_card > b, #wait_time_card > b {
+    #patient_volume_card>b,
+    #wait_time_card>b {
         line-height: 2.5;
         font-size: 13px;
         display: block;

@@ -293,7 +293,7 @@ app.layout = html.Div(
                 # LEFT PANEL
                 html.Div(
                     id="left-column",
-                    className="four columns div-user-controls",
+                    className="three columns div-user-controls",
                     children=[
                         # HEADER
                         html.H5(
@@ -303,7 +303,7 @@ app.layout = html.Div(
                         html.Div(
                             className="div-for-dropdown",
                             children=[
-                                html.H6("Résultats"),
+                                html.P("Résultats du :"),
                                 dcc.Dropdown(
                                     id="tour",
                                     options=["1er tour", "2nd tour"],
@@ -312,11 +312,12 @@ app.layout = html.Div(
                                 ),
                             ],
                         ),
+                        html.Br(),
                         # Geography
                         html.Div(
                             className="div-for-dropdown",
                             children=[
-                                html.H6("Précision géographique"),
+                                html.P("Précision géographique :"),
                                 dcc.Dropdown(
                                     id="geography",
                                     options=["Région", "Département"],
@@ -325,11 +326,12 @@ app.layout = html.Div(
                                 ),
                             ],
                         ),
+                        html.Br(),
                         # Pourcentage
                         html.Div(
                             className="div-for-dropdown",
                             children=[
-                                html.H6("Exprimé en pourcentage"),
+                                html.P("En pourcentage :"),
                                 dcc.Dropdown(
                                     id="pourcentage",
                                     options=["Oui", "Non"],
@@ -343,7 +345,7 @@ app.layout = html.Div(
                 # RIGHT PANELS
                 html.Div(
                     id="right-column",
-                    className="eight columns div-for-charts bg-grey",
+                    className="nine columns div-for-charts bg-grey",
                     children=[
                         # LEFT PANEL - CANDIDATES
                         html.Div(
