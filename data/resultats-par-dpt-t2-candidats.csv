@@ -1,0 +1,215 @@
+﻿Code du département;Libellé du département;Sexe;Nom;Prénom;Voix;% Voix/Ins;% Voix/Exp
+1;Ain;M;MACRON;Emmanuel;166635;38,02;54,99
+2;Aisne;M;MACRON;Emmanuel;102428;27,41;40,09
+3;Allier;M;MACRON;Emmanuel;87645;35,06;52,35
+4;Alpes-de-Haute-Provence;M;MACRON;Emmanuel;41657;32,52;48,55
+5;Hautes-Alpes;M;MACRON;Emmanuel;42209;37,18;55,06
+6;Alpes-Maritimes;M;MACRON;Emmanuel;261987;33,64;50,13
+7;Ardèche;M;MACRON;Emmanuel;90254;35,26;52,4
+8;Ardennes;M;MACRON;Emmanuel;55085;29,6;43,34
+9;Ariège;M;MACRON;Emmanuel;39297;33,01;51,09
+10;Aube;M;MACRON;Emmanuel;68830;33,48;48,32
+11;Aude;M;MACRON;Emmanuel;85464;30,53;45,1
+12;Aveyron;M;MACRON;Emmanuel;89953;40,98;60,07
+13;Bouches-du-Rhône;M;MACRON;Emmanuel;481129;34,08;52,08
+14;Calvados;M;MACRON;Emmanuel;218571;42,67;60,29
+15;Cantal;M;MACRON;Emmanuel;45054;38,93;56,07
+16;Charente;M;MACRON;Emmanuel;95654;37,15;55,06
+17;Charente-Maritime;M;MACRON;Emmanuel;201159;38,76;56,32
+18;Cher;M;MACRON;Emmanuel;77739;34,63;52,56
+19;Corrèze;M;MACRON;Emmanuel;68272;36,9;55,78
+2A;Corse-du-Sud;M;MACRON;Emmanuel;26160;22,97;41,69
+2B;Haute-Corse;M;MACRON;Emmanuel;29951;23,2;42,13
+21;Côte-d'Or;M;MACRON;Emmanuel;144548;39,39;57,27
+22;Côtes-d'Armor;M;MACRON;Emmanuel;209856;44,48;62,9
+23;Creuse;M;MACRON;Emmanuel;30553;33,59;52,04
+24;Dordogne;M;MACRON;Emmanuel;111482;35,04;51,52
+25;Doubs;M;MACRON;Emmanuel;141916;38,52;57,16
+26;Drôme;M;MACRON;Emmanuel;143696;37,59;55,72
+27;Eure;M;MACRON;Emmanuel;146750;33,95;48,62
+28;Eure-et-Loir;M;MACRON;Emmanuel;109744;36,1;53,29
+29;Finistère;M;MACRON;Emmanuel;332396;46,83;67,5
+30;Gard;M;MACRON;Emmanuel;177665;32;47,85
+31;Haute-Garonne;M;MACRON;Emmanuel;409932;44,05;64,42
+32;Gers;M;MACRON;Emmanuel;57115;38,78;55,66
+33;Gironde;M;MACRON;Emmanuel;484771;41,84;61,37
+34;Hérault;M;MACRON;Emmanuel;297211;35,07;52,57
+35;Ille-et-Vilaine;M;MACRON;Emmanuel;390332;50,57;70,94
+36;Indre;M;MACRON;Emmanuel;57574;34,67;51,41
+37;Indre-et-Loire;M;MACRON;Emmanuel;189230;42,94;62,66
+38;Isère;M;MACRON;Emmanuel;359685;40,6;59,8
+39;Jura;M;MACRON;Emmanuel;68843;36,11;53,07
+40;Landes;M;MACRON;Emmanuel;128771;39,1;56,54
+41;Loir-et-Cher;M;MACRON;Emmanuel;91359;37,34;53,81
+42;Loire;M;MACRON;Emmanuel;194878;37,92;56,64
+43;Haute-Loire;M;MACRON;Emmanuel;62372;34,51;50,16
+44;Loire-Atlantique;M;MACRON;Emmanuel;505180;47,8;69,48
+45;Loiret;M;MACRON;Emmanuel;180882;39,51;57,57
+46;Lot;M;MACRON;Emmanuel;55130;39,59;59,18
+47;Lot-et-Garonne;M;MACRON;Emmanuel;81345;33,71;49,53
+48;Lozère;M;MACRON;Emmanuel;22064;36,9;54,2
+49;Maine-et-Loire;M;MACRON;Emmanuel;274810;46,62;66,53
+50;Manche;M;MACRON;Emmanuel;159815;41,55;59,61
+51;Marne;M;MACRON;Emmanuel;136053;35,73;52,1
+52;Haute-Marne;M;MACRON;Emmanuel;38230;29,54;43,04
+53;Mayenne;M;MACRON;Emmanuel;102263;45,49;64,21
+54;Meurthe-et-Moselle;M;MACRON;Emmanuel;179248;36,41;54,42
+55;Meuse;M;MACRON;Emmanuel;41933;31,11;44,39
+56;Morbihan;M;MACRON;Emmanuel;269755;44,27;62,81
+57;Moselle;M;MACRON;Emmanuel;249593;33,45;50,46
+58;Nièvre;M;MACRON;Emmanuel;50698;32,87;49,89
+59;Nord;M;MACRON;Emmanuel;634051;34,94;52,85
+60;Oise;M;MACRON;Emmanuel;182791;32,4;47,27
+61;Orne;M;MACRON;Emmanuel;79275;38,57;55,12
+62;Pas-de-Calais;M;MACRON;Emmanuel;324015;29,62;42,5
+63;Puy-de-Dôme;M;MACRON;Emmanuel;188468;40,26;60,16
+64;Pyrénées-Atlantiques;M;MACRON;Emmanuel;219766;42,27;63,05
+65;Hautes-Pyrénées;M;MACRON;Emmanuel;65085;36,68;55,5
+66;Pyrénées-Orientales;M;MACRON;Emmanuel;106188;29,32;43,68
+67;Bas-Rhin;M;MACRON;Emmanuel;320198;41,1;58,96
+68;Haut-Rhin;M;MACRON;Emmanuel;191814;36,06;52,9
+69;Rhône;M;MACRON;Emmanuel;551544;46,67;68,66
+70;Haute-Saône;M;MACRON;Emmanuel;53568;30,14;43,1
+71;Saône-et-Loire;M;MACRON;Emmanuel;144989;35,98;53,33
+72;Sarthe;M;MACRON;Emmanuel;154909;37,67;55,41
+73;Savoie;M;MACRON;Emmanuel;125770;39,21;57,62
+74;Haute-Savoie;M;MACRON;Emmanuel;237506;41,97;61,66
+75;Paris;M;MACRON;Emmanuel;809005;59,11;85,1
+76;Seine-Maritime;M;MACRON;Emmanuel;332139;37,76;55,28
+77;Seine-et-Marne;M;MACRON;Emmanuel;329702;36,64;56,96
+78;Yvelines;M;MACRON;Emmanuel;464910;48,35;71,05
+79;Deux-Sèvres;M;MACRON;Emmanuel;117805;43,11;62,13
+80;Somme;M;MACRON;Emmanuel;140866;34,36;48,99
+81;Tarn;M;MACRON;Emmanuel;106768;35,81;53,06
+82;Tarn-et-Garonne;M;MACRON;Emmanuel;62503;33,12;47,98
+83;Var;M;MACRON;Emmanuel;252720;30,78;44,9
+84;Vaucluse;M;MACRON;Emmanuel;134475;32,66;48
+85;Vendée;M;MACRON;Emmanuel;244494;44,36;61,86
+86;Vienne;M;MACRON;Emmanuel;125174;40,9;60,12
+87;Haute-Vienne;M;MACRON;Emmanuel;103329;39,17;59,18
+88;Vosges;M;MACRON;Emmanuel;91542;32,94;47,58
+89;Yonne;M;MACRON;Emmanuel;78038;32,79;48,41
+90;Territoire de Belfort;M;MACRON;Emmanuel;31987;34,12;51,44
+91;Essonne;M;MACRON;Emmanuel;338569;42,33;65,43
+92;Hauts-de-Seine;M;MACRON;Emmanuel;552124;55,31;80,39
+93;Seine-Saint-Denis;M;MACRON;Emmanuel;326053;41,05;73,72
+94;Val-de-Marne;M;MACRON;Emmanuel;376204;47,22;74,48
+95;Val-d'Oise;M;MACRON;Emmanuel;299829;40,86;66,15
+ZA;Guadeloupe;M;MACRON;Emmanuel;40229;12,73;30,4
+ZB;Martinique;M;MACRON;Emmanuel;46918;15,4;39,13
+ZC;Guyane;M;MACRON;Emmanuel;14073;13,66;39,3
+ZD;La Réunion;M;MACRON;Emmanuel;147270;21,78;40,43
+ZM;Mayotte;M;MACRON;Emmanuel;15707;17;40,9
+ZN;Nouvelle-Calédonie;M;MACRON;Emmanuel;43795;20,02;61,03
+ZP;Polynésie française;M;MACRON;Emmanuel;42890;20,86;51,8
+ZS;Saint-Pierre-et-Miquelon;M;MACRON;Emmanuel;1243;24,65;49,31
+ZW;Wallis et Futuna;M;MACRON;Emmanuel;3830;40,26;67,44
+ZX;Saint-Martin/Saint-Barthélemy;M;MACRON;Emmanuel;3850;15,76;44,58
+ZZ;Français établis hors de France;M;MACRON;Emmanuel;458874;32,14;86,14
+1;Ain;F;LE PEN;Marine;136370;31,12;45,01
+2;Aisne;F;LE PEN;Marine;153069;40,97;59,91
+3;Allier;F;LE PEN;Marine;79761;31,91;47,65
+4;Alpes-de-Haute-Provence;F;LE PEN;Marine;44139;34,46;51,45
+5;Hautes-Alpes;F;LE PEN;Marine;34446;30,34;44,94
+6;Alpes-Maritimes;F;LE PEN;Marine;260627;33,47;49,87
+7;Ardèche;F;LE PEN;Marine;82001;32,04;47,6
+8;Ardennes;F;LE PEN;Marine;72026;38,7;56,66
+9;Ariège;F;LE PEN;Marine;37616;31,6;48,91
+10;Aube;F;LE PEN;Marine;73630;35,81;51,68
+11;Aude;F;LE PEN;Marine;104038;37,16;54,9
+12;Aveyron;F;LE PEN;Marine;59789;27,24;39,93
+13;Bouches-du-Rhône;F;LE PEN;Marine;442759;31,37;47,92
+14;Calvados;F;LE PEN;Marine;143955;28,11;39,71
+15;Cantal;F;LE PEN;Marine;35301;30,5;43,93
+16;Charente;F;LE PEN;Marine;78085;30,32;44,94
+17;Charente-Maritime;F;LE PEN;Marine;156020;30,07;43,68
+18;Cher;F;LE PEN;Marine;70160;31,26;47,44
+19;Corrèze;F;LE PEN;Marine;54131;29,26;44,22
+2A;Corse-du-Sud;F;LE PEN;Marine;36595;32,13;58,31
+2B;Haute-Corse;F;LE PEN;Marine;41137;31,86;57,87
+21;Côte-d'Or;F;LE PEN;Marine;107866;29,4;42,73
+22;Côtes-d'Armor;F;LE PEN;Marine;123798;26,24;37,1
+23;Creuse;F;LE PEN;Marine;28153;30,95;47,96
+24;Dordogne;F;LE PEN;Marine;104894;32,97;48,48
+25;Doubs;F;LE PEN;Marine;106347;28,86;42,84
+26;Drôme;F;LE PEN;Marine;114216;29,88;44,28
+27;Eure;F;LE PEN;Marine;155085;35,88;51,38
+28;Eure-et-Loir;F;LE PEN;Marine;96185;31,64;46,71
+29;Finistère;F;LE PEN;Marine;160073;22,55;32,5
+30;Gard;F;LE PEN;Marine;193662;34,88;52,15
+31;Haute-Garonne;F;LE PEN;Marine;226450;24,33;35,58
+32;Gers;F;LE PEN;Marine;45490;30,89;44,34
+33;Gironde;F;LE PEN;Marine;305112;26,34;38,63
+34;Hérault;F;LE PEN;Marine;268098;31,63;47,43
+35;Ille-et-Vilaine;F;LE PEN;Marine;159930;20,72;29,06
+36;Indre;F;LE PEN;Marine;54410;32,77;48,59
+37;Indre-et-Loire;F;LE PEN;Marine;112770;25,59;37,34
+38;Isère;F;LE PEN;Marine;241749;27,29;40,2
+39;Jura;F;LE PEN;Marine;60882;31,94;46,93
+40;Landes;F;LE PEN;Marine;98982;30,05;43,46
+41;Loir-et-Cher;F;LE PEN;Marine;78433;32,06;46,19
+42;Loire;F;LE PEN;Marine;149174;29,02;43,36
+43;Haute-Loire;F;LE PEN;Marine;61979;34,3;49,84
+44;Loire-Atlantique;F;LE PEN;Marine;221938;21;30,52
+45;Loiret;F;LE PEN;Marine;133331;29,13;42,43
+46;Lot;F;LE PEN;Marine;38031;27,31;40,82
+47;Lot-et-Garonne;F;LE PEN;Marine;82874;34,34;50,47
+48;Lozère;F;LE PEN;Marine;18644;31,18;45,8
+49;Maine-et-Loire;F;LE PEN;Marine;138259;23,45;33,47
+50;Manche;F;LE PEN;Marine;108294;28,15;40,39
+51;Marne;F;LE PEN;Marine;125073;32,85;47,9
+52;Haute-Marne;F;LE PEN;Marine;50586;39,09;56,96
+53;Mayenne;F;LE PEN;Marine;57006;25,36;35,79
+54;Meurthe-et-Moselle;F;LE PEN;Marine;150156;30,5;45,58
+55;Meuse;F;LE PEN;Marine;52527;38,97;55,61
+56;Morbihan;F;LE PEN;Marine;159717;26,21;37,19
+57;Moselle;F;LE PEN;Marine;245068;32,84;49,54
+58;Nièvre;F;LE PEN;Marine;50923;33,02;50,11
+59;Nord;F;LE PEN;Marine;565763;31,18;47,15
+60;Oise;F;LE PEN;Marine;203865;36,13;52,73
+61;Orne;F;LE PEN;Marine;64551;31,4;44,88
+62;Pas-de-Calais;F;LE PEN;Marine;438433;40,08;57,5
+63;Puy-de-Dôme;F;LE PEN;Marine;124825;26,66;39,84
+64;Pyrénées-Atlantiques;F;LE PEN;Marine;128779;24,77;36,95
+65;Hautes-Pyrénées;F;LE PEN;Marine;52182;29,41;44,5
+66;Pyrénées-Orientales;F;LE PEN;Marine;136922;37,81;56,32
+67;Bas-Rhin;F;LE PEN;Marine;222838;28,61;41,04
+68;Haut-Rhin;F;LE PEN;Marine;170777;32,11;47,1
+69;Rhône;F;LE PEN;Marine;251720;21,3;31,34
+70;Haute-Saône;F;LE PEN;Marine;70720;39,79;56,9
+71;Saône-et-Loire;F;LE PEN;Marine;126860;31,48;46,67
+72;Sarthe;F;LE PEN;Marine;124658;30,31;44,59
+73;Savoie;F;LE PEN;Marine;92487;28,84;42,38
+74;Haute-Savoie;F;LE PEN;Marine;147694;26,1;38,34
+75;Paris;F;LE PEN;Marine;141594;10,35;14,9
+76;Seine-Maritime;F;LE PEN;Marine;268688;30,54;44,72
+77;Seine-et-Marne;F;LE PEN;Marine;249080;27,68;43,04
+78;Yvelines;F;LE PEN;Marine;189474;19,7;28,95
+79;Deux-Sèvres;F;LE PEN;Marine;71791;26,27;37,87
+80;Somme;F;LE PEN;Marine;146669;35,78;51,01
+81;Tarn;F;LE PEN;Marine;94441;31,67;46,94
+82;Tarn-et-Garonne;F;LE PEN;Marine;67770;35,91;52,02
+83;Var;F;LE PEN;Marine;310137;37,77;55,1
+84;Vaucluse;F;LE PEN;Marine;145705;35,39;52
+85;Vendée;F;LE PEN;Marine;150772;27,35;38,14
+86;Vienne;F;LE PEN;Marine;83050;27,13;39,88
+87;Haute-Vienne;F;LE PEN;Marine;71263;27,02;40,82
+88;Vosges;F;LE PEN;Marine;100853;36,29;52,42
+89;Yonne;F;LE PEN;Marine;83169;34,95;51,59
+90;Territoire de Belfort;F;LE PEN;Marine;30202;32,22;48,56
+91;Essonne;F;LE PEN;Marine;178908;22,37;34,57
+92;Hauts-de-Seine;F;LE PEN;Marine;134685;13,49;19,61
+93;Seine-Saint-Denis;F;LE PEN;Marine;116225;14,63;26,28
+94;Val-de-Marne;F;LE PEN;Marine;128873;16,17;25,52
+95;Val-d'Oise;F;LE PEN;Marine;153446;20,91;33,85
+ZA;Guadeloupe;F;LE PEN;Marine;92106;29,15;69,6
+ZB;Martinique;F;LE PEN;Marine;73000;23,96;60,87
+ZC;Guyane;F;LE PEN;Marine;21734;21,09;60,7
+ZD;La Réunion;F;LE PEN;Marine;217021;32,1;59,57
+ZM;Mayotte;F;LE PEN;Marine;22694;24,56;59,1
+ZN;Nouvelle-Calédonie;F;LE PEN;Marine;27960;12,78;38,97
+ZP;Polynésie française;F;LE PEN;Marine;39913;19,41;48,2
+ZS;Saint-Pierre-et-Miquelon;F;LE PEN;Marine;1278;25,34;50,69
+ZW;Wallis et Futuna;F;LE PEN;Marine;1849;19,43;32,56
+ZX;Saint-Martin/Saint-Barthélemy;F;LE PEN;Marine;4787;19,59;55,42
+ZZ;Français établis hors de France;F;LE PEN;Marine;73830;5,17;13,86

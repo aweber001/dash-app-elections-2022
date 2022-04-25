@@ -1,3 +1,4 @@
+from tokenize import group
 from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
 import pandas as pd
@@ -47,9 +48,15 @@ def read_geojson(filepath):
         return json.load(file)
 
 
-# Data"
+# Data
 data = {
     "1er tour": {
+        "France entière": {
+            "id": "Libellé du niveau",
+            "stats": "resultats-t1-france-entiere.csv",
+            "candidats": "resultats-t1-france-entiere.csv",
+            "geo": "departements_france.geojson",
+        },
         "Département": {
             "id": "Libellé du département",
             "stats": "resultats-par-dpt-france-entiere.csv",
@@ -63,9 +70,47 @@ data = {
             "geo": "regions_france.geojson",
         },
     },
-    "2nd tour": {},
+    "2nd tour": {
+        "France entière": {
+            "id": "Libellé du niveau",
+            "stats": "resultats-t2-france-entiere.csv",
+            "candidats": "resultats-t2-france-entiere.csv",
+            "geo": "departements_france.geojson",
+        },
+        "Département": {
+            "id": "Libellé du département",
+            "stats": "resultats-par-dpt-t2-france-entiere.csv",
+            "candidats": "resultats-par-dpt-t2-candidats.csv",
+            "geo": "departements_france.geojson",
+        },
+        "Région": {
+            "id": "Libellé de la région",
+            "stats": "resultats-par-reg-t2-france-entiere.csv",
+            "candidats": "resultats-par-reg-t2-candidats.csv",
+            "geo": "regions_france.geojson",
+        },
+    },
 }
 
+# List of candidates
+list_candidates = {
+    "1er tour": [
+        "MAJORITE",
+        "Arthaud",
+        "Dupont-Aignan",
+        "Hidalgo",
+        "Jadot",
+        "Lassalle",
+        "Le Pen",
+        "Macron",
+        "Mélenchon",
+        "Poutou",
+        "Pécresse",
+        "Roussel",
+        "Zemmour",
+    ],
+    "2nd tour": ["MAJORITE", "Macron", "Le Pen"],
+}
 
 color_map_candidats = {
     "JADOT": "#FFA15A",
@@ -78,14 +123,7 @@ color_map_candidats = {
 
 
 # Callbacks
-@app.callback(
-    Output("graph-stats", "figure"),
-    Input("stats", "value"),
-    Input("geography", "value"),
-    Input("pourcentage", "value"),
-    Input("tour", "value"),
-)
-def display_choropleth_stats(stats, geography, pourcentage, tour):
+def create_choropleth_stats(stats, geography, pourcentage, tour):
     df_stats = read_file(data[tour][geography]["stats"])
     geojson = read_geojson(data[tour][geography]["geo"])
 
@@ -110,7 +148,7 @@ def display_choropleth_stats(stats, geography, pourcentage, tour):
         geojson=geojson,
         locations=data[tour][geography]["id"],
         color=color_label,
-        # range_color=(0, 100),
+        # range_color=(0, 100), # TODO: adapt color bar or not ?
         color_continuous_scale="RdBu_r",  # Blues
         featureidkey="properties.nom",
         projection="mercator",
@@ -131,14 +169,7 @@ def display_choropleth_stats(stats, geography, pourcentage, tour):
     return fig
 
 
-@app.callback(
-    Output("graph-cand", "figure"),
-    Input("candidate", "value"),
-    Input("geography", "value"),
-    Input("pourcentage", "value"),
-    Input("tour", "value"),
-)
-def display_choropleth_cand(candidate, geography, pourcentage, tour):
+def create_choropleth_cand(candidate, geography, pourcentage, tour):
     df_candidats = read_file(data[tour][geography]["candidats"])
     geojson = read_geojson(data[tour][geography]["geo"])
 
@@ -160,6 +191,7 @@ def display_choropleth_cand(candidate, geography, pourcentage, tour):
         locations=data[tour][geography]["id"],
         color=color_label,
         color_continuous_scale="RdBu_r",
+        # range_color=(0, 100),
         color_discrete_map=color_map_candidats,
         featureidkey="properties.nom",
         projection="mercator",
@@ -179,14 +211,7 @@ def display_choropleth_cand(candidate, geography, pourcentage, tour):
     return fig
 
 
-@app.callback(
-    Output("bar-stats", "figure"),
-    Input("stats", "value"),
-    Input("geography", "value"),
-    Input("pourcentage", "value"),
-    Input("tour", "value"),
-)
-def display_bar_stats(stats, geography, pourcentage, tour):
+def create_bar_stats(stats, geography, pourcentage, tour):
     df_stats = read_file(data[tour][geography]["stats"])
 
     if pourcentage == "Oui":
@@ -222,14 +247,7 @@ def display_bar_stats(stats, geography, pourcentage, tour):
     return fig
 
 
-@app.callback(
-    Output("bar-cand", "figure"),
-    Input("candidate", "value"),
-    Input("geography", "value"),
-    Input("pourcentage", "value"),
-    Input("tour", "value"),
-)
-def display_bar_cand(candidate, geography, pourcentage, tour):
+def create_bar_cand(candidate, geography, pourcentage, tour):
 
     df_candidats = read_file(data[tour][geography]["candidats"])
 
@@ -275,8 +293,95 @@ def display_bar_cand(candidate, geography, pourcentage, tour):
     return fig
 
 
+def create_results_cand(geography, pourcentage, tour):
+
+    df = read_file(data[tour][geography]["candidats"])
+
+    if pourcentage == "Oui":
+        color_label = "% Voix/Exp"
+    elif pourcentage == "Non":
+        color_label = "Voix"
+
+    fig = px.bar(
+        df.sort_values(by=color_label),
+        orientation="h",
+        y="Nom",
+        x=color_label,
+        color=color_label,
+        color_continuous_scale="RdBu_r",
+    )
+
+    fig.update_coloraxes(showscale=False)
+    xlabel = "Voix"
+    if pourcentage == "Oui":
+        xlabel += " (%) "
+    fig.update_xaxes(title_text=xlabel)
+
+    return fig
+
+
+def create_results_stats(geography, pourcentage, tour):
+
+    serie = read_file(data[tour][geography]["stats"]).iloc[0]
+
+    if pourcentage == "Oui":
+        values = ["% Vot/Ins", "% Abs/Ins", "% Blancs/Vot", "% Nuls/Vot"]
+    elif pourcentage == "Non":
+        values = ["Votants", "Abstentions", "Blancs", "Nuls"]
+
+    df = pd.DataFrame(serie[values])
+    fig = px.bar(
+        df,
+        x=0,
+        y=df.index,
+        color=df.index,
+        orientation="h",
+    )
+
+    fig.update_coloraxes(showscale=False)
+    xlabel = "Voix"
+    if pourcentage == "Oui":
+        xlabel += " (%) "
+    fig.update_xaxes(title_text=xlabel)
+
+    return fig
+
+
+@app.callback(
+    Output("left-graphs", "children"),
+    Output("right-graphs", "children"),
+    Input("geography", "value"),
+    Input("tour", "value"),
+    Input("stats", "value"),
+    Input("candidate", "value"),
+    Input("pourcentage", "value"),
+)
+def display_candidates_results(geography, tour, stats, candidate, pourcentage):
+    if geography == "France entière":
+        res_cand = create_results_cand(geography, pourcentage, tour)
+        res_stats = create_results_stats(geography, pourcentage, tour)
+
+        children_left = [dcc.Graph(figure=res_cand)]
+        children_right = [dcc.Graph(figure=res_stats)]
+
+    else:
+        chloro_cand = create_choropleth_cand(candidate, geography, pourcentage, tour)
+        bar_cand = create_bar_cand(candidate, geography, pourcentage, tour)
+        children_left = [dcc.Graph(figure=chloro_cand), dcc.Graph(figure=bar_cand)]
+
+        chloro_stats = create_choropleth_stats(stats, geography, pourcentage, tour)
+        bar_stats = create_bar_stats(stats, geography, pourcentage, tour)
+        children_right = [dcc.Graph(figure=chloro_stats), dcc.Graph(figure=bar_stats)]
+
+    return children_left, children_right
+
+
+@app.callback(Output("candidate", "options"), Input("tour", "value"))
+def set_candidates_options(selected_tour):
+    return [{"label": i, "value": i} for i in list_candidates[selected_tour]]
+
+
 # Layout
-colors = {"background": "#d1d1e0", "text": "#7FDBFF"}
 app.layout = html.Div(
     children=[
         html.Div(
@@ -320,8 +425,8 @@ app.layout = html.Div(
                                 html.P("Précision géographique :"),
                                 dcc.Dropdown(
                                     id="geography",
-                                    options=["Région", "Département"],
-                                    value="Région",
+                                    options=["France entière", "Région", "Département"],
+                                    value="France entière",
                                     # inline=True,
                                 ),
                             ],
@@ -349,41 +454,33 @@ app.layout = html.Div(
                     children=[
                         # LEFT PANEL - CANDIDATES
                         html.Div(
-                            [
+                            id="left-panel",
+                            children=[
                                 html.H5("Résultats par candidat"),
                                 html.Div(
                                     className="div-for-dropdown",
                                     children=[
                                         dcc.Dropdown(
                                             id="candidate",
-                                            options=[
-                                                "MAJORITE",
-                                                "Arthaud",
-                                                "Dupont-Aignan",
-                                                "Hidalgo",
-                                                "Jadot",
-                                                "Lassalle",
-                                                "Le Pen",
-                                                "Macron",
-                                                "Mélenchon",
-                                                "Poutou",
-                                                "Pécresse",
-                                                "Roussel",
-                                                "Zemmour",
-                                            ],
-                                            value="Arthaud",
+                                            value="MAJORITE",
                                             # inline=True
                                         ),
                                     ],
                                 ),
-                                dcc.Graph(id="graph-cand"),
-                                dcc.Graph(id="bar-cand"),
+                                html.Div(
+                                    id="left-graphs",
+                                    children=[
+                                        # dcc.Graph(id="graph-cand"),
+                                        # dcc.Graph(id="bar-cand"),
+                                    ],
+                                ),
                             ],
                             style={"width": "48%", "display": "inline-block"},
                         ),
                         # RIGHT PANEL - STATISTIQUES
                         html.Div(
-                            [
+                            id="right-panel",
+                            children=[
                                 html.H5("Statistiques de vote"),
                                 html.Div(
                                     className="div-for-dropdown",
@@ -403,8 +500,13 @@ app.layout = html.Div(
                                         ),
                                     ],
                                 ),
-                                dcc.Graph(id="graph-stats"),
-                                dcc.Graph(id="bar-stats"),
+                                html.Div(
+                                    id="right-graphs",
+                                    children=[
+                                        # dcc.Graph(id="graph-stats"),
+                                        # dcc.Graph(id="bar-stats"),
+                                    ],
+                                ),
                             ],
                             style={
                                 "width": "48%",
