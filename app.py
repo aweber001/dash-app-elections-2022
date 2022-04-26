@@ -1,5 +1,6 @@
 from tokenize import group
 from dash import Dash, dcc, html, Input, Output
+from numpy import float64
 import plotly.express as px
 import pandas as pd
 import json
@@ -112,15 +113,7 @@ list_candidates = {
     "2nd tour": ["MAJORITE", "Macron", "Le Pen"],
 }
 
-color_map_candidats = {
-    "JADOT": "#FFA15A",
-    "LE PEN": "#9467BD",
-    "MACRON": "rgb(33,102,172)",
-    "MÉLENCHON": "rgb(178,24,43)",
-    "PÉCRESSE": "#19D3F3",
-    "ZEMMOUR": "#AB63FA",
-}
-
+colorscale = "Picnic"  # "RdBu_r"
 
 # Callbacks
 def create_choropleth_stats(stats, geography, pourcentage, tour):
@@ -148,8 +141,8 @@ def create_choropleth_stats(stats, geography, pourcentage, tour):
         geojson=geojson,
         locations=data[tour][geography]["id"],
         color=color_label,
-        # range_color=(0, 100), # TODO: adapt color bar or not ?
-        color_continuous_scale="RdBu_r",  # Blues
+        # range_color=(0, 100),
+        color_continuous_scale=colorscale,  # Blues
         featureidkey="properties.nom",
         projection="mercator",
     )
@@ -190,15 +183,23 @@ def create_choropleth_cand(candidate, geography, pourcentage, tour):
         geojson=geojson,
         locations=data[tour][geography]["id"],
         color=color_label,
-        color_continuous_scale="RdBu_r",
-        # range_color=(0, 100),
-        color_discrete_map=color_map_candidats,
+        color_continuous_scale=colorscale,
         featureidkey="properties.nom",
         projection="mercator",
         hover_data=["% Voix/Exp"],
     )
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+
+    # if geography != "Département":
+    #     fig.add_scattergeo(
+    #         geojson=geojson,
+    #         locations=res_candidat[data[tour][geography]["id"]],
+    #         text=res_candidat[color_label],
+    #         featureidkey="properties.nom",
+    #         mode="text",
+    #     )
+
     colorlabel = "Voix"
     if pourcentage == "Oui":
         colorlabel += " (%) "
@@ -236,13 +237,15 @@ def create_bar_stats(stats, geography, pourcentage, tour):
         y=data[tour][geography]["id"],
         x=color_label,
         color=color_label,
-        color_continuous_scale="RdBu_r",
+        color_continuous_scale=colorscale,
+        text_auto=True,
     )
     fig.update_coloraxes(showscale=False)
     xlabel = stats
     if pourcentage == "Oui":
         xlabel += " (%) "
     fig.update_xaxes(title_text=xlabel)
+    fig.update_yaxes(title=None)
 
     return fig
 
@@ -258,15 +261,17 @@ def create_bar_cand(candidate, geography, pourcentage, tour):
         color_label = "Nom"
         maj_count = (
             res_candidat["Nom"]
-            .value_counts(ascending=True)
+            .value_counts(ascending=False)
             .reset_index()
             .rename(columns={"index": "Nom", "Nom": "Count"})
         )
         fig = px.bar(
             maj_count,
+            y="Nom",
+            x="Count",
             orientation="h",
             color=color_label,
-            color_discrete_map=color_map_candidats,
+            text_auto=True,
         )
     else:
         res_candidat = df_candidats[df_candidats["Nom"] == candidate.upper()]
@@ -281,7 +286,8 @@ def create_bar_cand(candidate, geography, pourcentage, tour):
             y=data[tour][geography]["id"],
             x=color_label,
             color=color_label,
-            color_continuous_scale="RdBu_r",
+            color_continuous_scale=colorscale,
+            text_auto=True,
         )
 
     fig.update_coloraxes(showscale=False)
@@ -289,6 +295,7 @@ def create_bar_cand(candidate, geography, pourcentage, tour):
     if pourcentage == "Oui":
         xlabel += " (%) "
     fig.update_xaxes(title_text=xlabel)
+    fig.update_yaxes(title=None)
 
     return fig
 
@@ -308,7 +315,8 @@ def create_results_cand(geography, pourcentage, tour):
         y="Nom",
         x=color_label,
         color=color_label,
-        color_continuous_scale="RdBu_r",
+        color_continuous_scale=colorscale,
+        text_auto=True,
     )
 
     fig.update_coloraxes(showscale=False)
@@ -316,6 +324,7 @@ def create_results_cand(geography, pourcentage, tour):
     if pourcentage == "Oui":
         xlabel += " (%) "
     fig.update_xaxes(title_text=xlabel)
+    fig.update_yaxes(title=None)
 
     return fig
 
@@ -323,19 +332,17 @@ def create_results_cand(geography, pourcentage, tour):
 def create_results_stats(geography, pourcentage, tour):
 
     serie = read_file(data[tour][geography]["stats"]).iloc[0]
-
+    df = serie[["Votants", "Abstentions", "Blancs", "Nuls"]]
     if pourcentage == "Oui":
-        values = ["% Vot/Ins", "% Abs/Ins", "% Blancs/Vot", "% Nuls/Vot"]
-    elif pourcentage == "Non":
-        values = ["Votants", "Abstentions", "Blancs", "Nuls"]
+        df = ((df / serie["Inscrits"]) * 100).astype(float64).round(2)
 
-    df = pd.DataFrame(serie[values])
     fig = px.bar(
         df,
         x=0,
         y=df.index,
         color=df.index,
         orientation="h",
+        text_auto=True,
     )
 
     fig.update_coloraxes(showscale=False)
@@ -343,6 +350,7 @@ def create_results_stats(geography, pourcentage, tour):
     if pourcentage == "Oui":
         xlabel += " (%) "
     fig.update_xaxes(title_text=xlabel)
+    fig.update_yaxes(title=None)
 
     return fig
 
@@ -381,6 +389,16 @@ def set_candidates_options(selected_tour):
     return [{"label": i, "value": i} for i in list_candidates[selected_tour]]
 
 
+@app.callback(
+    Output("drop-1", "hidden"), Output("drop-2", "hidden"), Input("geography", "value")
+)
+def display_dropdown(selected_tour):
+    if selected_tour == "France entière":
+        return True, True
+    else:
+        return False, False
+
+
 # Layout
 app.layout = html.Div(
     children=[
@@ -408,7 +426,7 @@ app.layout = html.Div(
                         html.Div(
                             className="div-for-dropdown",
                             children=[
-                                html.P("Résultats du :"),
+                                html.P("Tour :"),
                                 dcc.Dropdown(
                                     id="tour",
                                     options=["1er tour", "2nd tour"],
@@ -441,7 +459,6 @@ app.layout = html.Div(
                                     id="pourcentage",
                                     options=["Oui", "Non"],
                                     value="Oui",
-                                    # inline=True,
                                 ),
                             ],
                         ),
@@ -458,21 +475,17 @@ app.layout = html.Div(
                             children=[
                                 html.H5("Résultats par candidat"),
                                 html.Div(
+                                    id="drop-1",
                                     className="div-for-dropdown",
                                     children=[
                                         dcc.Dropdown(
                                             id="candidate",
                                             value="MAJORITE",
-                                            # inline=True
                                         ),
                                     ],
                                 ),
                                 html.Div(
                                     id="left-graphs",
-                                    children=[
-                                        # dcc.Graph(id="graph-cand"),
-                                        # dcc.Graph(id="bar-cand"),
-                                    ],
                                 ),
                             ],
                             style={"width": "48%", "display": "inline-block"},
@@ -483,6 +496,7 @@ app.layout = html.Div(
                             children=[
                                 html.H5("Statistiques de vote"),
                                 html.Div(
+                                    id="drop-2",
                                     className="div-for-dropdown",
                                     children=[
                                         dcc.Dropdown(
@@ -496,16 +510,11 @@ app.layout = html.Div(
                                                 # "Exprimés",
                                             ],
                                             value="Abstentions",
-                                            # inline=True
                                         ),
                                     ],
                                 ),
                                 html.Div(
                                     id="right-graphs",
-                                    children=[
-                                        # dcc.Graph(id="graph-stats"),
-                                        # dcc.Graph(id="bar-stats"),
-                                    ],
                                 ),
                             ],
                             style={
